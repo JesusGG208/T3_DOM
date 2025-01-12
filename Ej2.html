@@ -51,28 +51,35 @@
     <p></p>
     <script>
         function informarEnlaces() {
-            mensaje = "";
+            mensaje = ""; // Mensaje que se irá rellenando a medida que vaya por cada apartado
 
+            // 1. Número de enlaces de la página
             let enlaces = document.getElementsByTagName("a");
             mensaje += "Hay " + enlaces.length + " enlaces\n";
 
-            mensaje += "Penúltimo enlace: " + enlaces[5] + "\n";
+            // 2. Dirección a la que enlaza el penúltimo enlace
+            mensaje += "Penúltimo enlace: " + enlaces[enlaces.length - 2] + "\n";
 
-            let contadorEnlacesPruebas = 0;
+            // 3. Numero de enlaces que enlazan a http://prueba
+            let contadorEnlacesPrueba = 0;
             for (let i = 0; i < enlaces.length; i++) {
-                let enlace = enlaces[i];
-                if (enlace.href === "http://prueba") {
-                    contadorEnlacesPruebas ++;
+                if (enlaces[i].href === "http://prueba/") {
+                    contadorEnlacesPrueba++;
                 }
             }
+            mensaje += "Número de enlaces que enlazan a http://prueba: " + contadorEnlacesPrueba + "\n";
 
-            mensaje += "Número de enlaces que enlazan a http://prueba: " + contadorEnlacesPruebas + "\n";
-
+            // 4. Número de enlaces del tercer párrafo
             let parrafos = document.getElementsByTagName("p");
-            let tercerParrafo = parrafos[2];
-            let contadorEnlacesTercer = tercerParrafo.children.length;
+            if (parrafos.length < 3) {
+                mensaje += "No existe tercer párrafo"
+            }
+            else {
+                let tercerParrafo = parrafos[2];
+                let contadorEnlacesTercer = tercerParrafo.getElementsByTagName("a");
 
-            mensaje += "Hay " + contadorEnlacesTercer + " enlaces en el tercer párrafo\n";
+                mensaje += "Hay " + contadorEnlacesTercer.length + " enlaces en el tercer párrafo\n";
+            }
 
             alert(mensaje);
         }

@@ -14,14 +14,14 @@
 	<p>5. Distinctio quas, impedit inventore quod! Incidunt ab in, quidem deleniti repellendus odit quisquam, quis pariatur, doloribus adipisci culpa nesciunt! Vero, soluta maxime provident minus voluptates esse, distinctio culpa labore deserunt.</p>
 
 <script>
-//que en el tercer párrafo haya un enlace con el texto "+ info" creado con javacript y que enlace a http://www.iesromerovargas.com/
+	let parrafos = document.getElementsByTagName("p");
+	//que en el tercer párrafo haya un enlace con el texto "+ info" creado con javacript y que enlace a http://www.iesromerovargas.com/
+	parrafos[2].innerHTML += '<a href="http://www.iesromerovargas.com/">+info</a>';
+	//inserta un párrafo de color rojo entre el tercer y el cuarto párrafos
+	parrafos[2].innerHTML += '<p style="color:red;">Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, placerat porttitor semper lectus tristique suspendisse facilisis, dis class pharetra tempus vitae orci egestas. Facilisi velit torquent arcu id rhoncus hac gravida, interdum pretium magna odio volutpat dictumst lobortis ullamcorper, curae sed conubia eleifend fames luctus.</p>';
 
-
-//inserta un párrafo de color rojo entre el tercer y el cuarto párrafos
-
-
-//elimina el segundo párrafo [1]	
-
+	//elimina el segundo párrafo [1]	
+	parrafos[1].innerHTML = "";
 
 </script>
 	
