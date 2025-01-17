@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej 13</title>
+</head>
+
+<body>
+    <button id="marcarTodo" value="marcar">Marcar todos</button>
+    <button id="desmarcarTodo" value="desmarcar">Desmarcar todos</button>
+    <p>
+        <span id="numerosCheck"></span>
+    </p>
+    <script>
+        let numerosCheck = document.getElementById("numerosCheck");
+        function generarCheckboxNumeros() {
+            for (let i = 0; i < 100; i++) {
+                numerosCheck.innerHTML += '<input type="checkbox" name="numero' + i + '" id="numero' + i + '"></input><label for="numero' + i + '">' + Math.floor(Math.random() * 101) + '</label><br>';
+            }
+        }
+        generarCheckboxNumeros();
+
+        marcarTodo.addEventListener("click", () => {
+            document.querySelectorAll('input[type="checkbox"]').forEach(function(checkElement) {
+                checkElement.checked = true;
+            });
+        });
+
+        desmarcarTodo.addEventListener("click", () => {
+            document.querySelectorAll('input[type=checkbox]').forEach(function(checkElement) {
+                checkElement.checked = false;
+            });
+        })
+    </script>
+</body>
+
+</html>
