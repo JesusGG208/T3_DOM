@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,34 +8,123 @@
     <title>Ej 16</title>
     <script type="text/javascript">
         function genera() {
-        
+
         }
-        
+
         function compara() {
-        
+
         }
     </script>
-        
+
     <style type="text/css">
-        #primero, #segundo, #resultado {width: 150px; height: 150px; border: thin solid silver; background: #F5F5F5; float: left; margin:20px; font-size: 6em; color: #333; text-align: center; padding: 5px; font-family:Arial, Helvetica, sans-serif;}
-        #primero p, #segundo p, #resultado p {margin:.2em 0;}
-        #resultado {margin-left:1.3em; border-color: black;}
-        .clear {clear:both;}
-        #compara {margin-left:11em;}
-        #genera {font-size:1.2em; margin-left:8em;}
+        #primero,
+        #segundo,
+        #resultado {
+            width: 150px;
+            height: 150px;
+            border: thin solid silver;
+            background: #F5F5F5;
+            float: left;
+            margin: 20px;
+            font-size: 6em;
+            color: #333;
+            text-align: center;
+            padding: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #primero p,
+        #segundo p,
+        #resultado p {
+            margin: .2em 0;
+        }
+
+        #resultado {
+            margin-left: 1.3em;
+            border-color: black;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #compara {
+            margin-left: 11em;
+        }
+
+        #genera {
+            font-size: 1.2em;
+            margin-left: 8em;
+        }
     </style>
-</head>   
+</head>
+
 <body>
-        <input id="genera" type="button" value="¡¡ Genera !!" onclick="genera()" />
-        
-        <div id="primero"></div>
-        
-        <div id="segundo"></div>
-        
-        <div class="clear"></div>
-        
-        <input id="compara" type="button" value="<< Comparar >>" onclick="compara()" />
-        
-        <div id="resultado"></div>
+    <input id="genera" type="button" value="¡¡ Genera !!" onclick="genera()" />
+
+    <div id="primero"></div>
+
+    <div id="segundo"></div>
+
+    <div class="clear"></div>
+
+    <input id="compara" type="button" value="<< Comparar >>" onclick="compara()" />
+
+    <div id="resultado"></div>
+    <script>
+        function genera() {
+            let content1 = document.getElementById("primero");
+            let content2 = document.getElementById("segundo");
+            let resultado = document.getElementById("resultado");
+
+            let num1 = Math.floor(Math.random() * 10);
+            let num2 = Math.floor(Math.random() * 10);
+
+            let p1 = document.createElement("p");
+            let p2 = document.createElement("p");
+
+            p1.appendChild(document.createTextNode(num1));
+            p2.appendChild(document.createTextNode(num2));
+
+            content1.innerHTML = "";
+            content2.innerHTML = "";
+            resultado.innerHTML = "";
+            content1.appendChild(p1);
+            content2.appendChild(p2);
+        }
+
+        function compara() {
+            let content1 = document.getElementById("primero");
+            let content2 = document.getElementById("segundo");
+            let resultBox = document.getElementById("resultado");
+
+            let p1 = content1.querySelector("p");
+            let p2 = content2.querySelector("p");
+
+            if (p1 && p2) {
+                let num1 = parseInt(p1.textContent);
+                let num2 = parseInt(p2.textContent);
+
+                let maxP;
+                if (num1 > num2) {
+                    maxP = p1;
+                    content1.innerHTML = "";
+                } else if(num1 < num2) {
+                    maxP = p2;
+                    content2.innerHTML = "";
+                } else {
+                    maxP = p1;
+                    content1.innerHTML = "";
+                    content2.innerHTML = "";
+                }
+
+                resultBox.innerHTML = "";
+                resultBox.appendChild(maxP);
+            } else {
+                alert("Por favor, genere los números antes de comparar.");
+            }
+        }
+    </script>
 </body>
+
 </html>
