@@ -72,11 +72,11 @@
 
     <div id="resultado"></div>
     <script>
-        function genera() {
-            let content1 = document.getElementById("primero");
-            let content2 = document.getElementById("segundo");
-            let resultado = document.getElementById("resultado");
+        let content1 = document.getElementById("primero");
+        let content2 = document.getElementById("segundo");
+        let resultado = document.getElementById("resultado");
 
+        function genera() {
             let num1 = Math.floor(Math.random() * 10);
             let num2 = Math.floor(Math.random() * 10);
 
@@ -94,10 +94,6 @@
         }
 
         function compara() {
-            let content1 = document.getElementById("primero");
-            let content2 = document.getElementById("segundo");
-            let resultBox = document.getElementById("resultado");
-
             let p1 = content1.querySelector("p");
             let p2 = content2.querySelector("p");
 
@@ -109,7 +105,7 @@
                 if (num1 > num2) {
                     maxP = p1;
                     content1.innerHTML = "";
-                } else if(num1 < num2) {
+                } else if (num1 < num2) {
                     maxP = p2;
                     content2.innerHTML = "";
                 } else {
@@ -118,8 +114,8 @@
                     content2.innerHTML = "";
                 }
 
-                resultBox.innerHTML = "";
-                resultBox.appendChild(maxP);
+                resultado.innerHTML = "";
+                resultado.appendChild(maxP);
             } else {
                 alert("Por favor, genere los números antes de comparar.");
             }
