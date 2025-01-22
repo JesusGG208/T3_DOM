@@ -7,7 +7,6 @@
 	<title>Ej10</title>
 </head>      
 <body>
-    <form action="#" method="post" id="formulario">
       <p>
         <label for="usuario">Ingrese email:</label>
         <input type="email" id="email" />
@@ -21,8 +20,25 @@
       <p>
         <input type="submit" value="confirmar" id="confirmar" />
       </p>
-    </form>
-  
+
+    <script>
+      let email = document.getElementById("email");
+      let url = document.getElementById("url");
+      let confirmarBoton = document.getElementById("confirmar");
+
+      let expRegEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+      let expRegURL = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+
+      confirmarBoton.addEventListener("click", ()=>{
+        if (expRegEmail.test(email.value) === true) {
+          document.getElementById("resultado1").innerHTML = "correcto";
+        }
+
+        if (expRegURL.test(url.value) === true) {
+          document.getElementById("resultado2").innerHTML = "correcto";
+        }
+      });
+      </script>
 </body>
   
 </html>
